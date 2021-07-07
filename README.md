@@ -1,5 +1,7 @@
 # Frontend Lab
-
+<div align="center">
+  <img align="" src="./readme-image.svg" width="500" />
+</div>
 Hi there, we're glad to congratulate you on passing interview and becoming much closer to be a real frontend dev.
 
 ### What is the place?
