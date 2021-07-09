@@ -1,7 +1,7 @@
 # Landing Page
 
-The task is pretty obviouse. It's just for slow start for you 😉.
-So you need to create Landing Page which will looks like this one: [Here will be url]().
+The task is pretty obvious. It's just for slow start for you 😉.<br/>
+So you need to create Landing Page which will looks like this one: [Here will be url](https://itechart-interns-landing.herokuapp.com/) - needs some time to be loaded.
 
 ### The requirements to the task:
 
