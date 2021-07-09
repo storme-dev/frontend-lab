@@ -3,7 +3,7 @@
 The task is pretty obviouse. It's just for slow start for you 😉.
 So you need to create Landing Page which will looks like this one: [Here will be url]().
 
-The requirements to the task:
+### The requirements to the task:
 
 - write on plenty HTML, CSS, JS (withount any libraries/frameworks)
 - the page should be fully responsive like in the example
@@ -13,6 +13,14 @@ The requirements to the task:
 - all animations should be done using ONLY CSS/JS
 - JS have to be written on the latest standarts (ES6+)
 - it should looks good in the latest version of moder browsers (at least Chrome, Firefox)
+- go to `workflow` folder, create `landing-page` folder and work on it
 - 📛 don't copy code of the example
 
-Have a look what you should [do next](../README.md#progress). 🔙
+### 👇 Maybe it'll help you 👇:
+
+☘️ Where you can find the font: [Google Fonts](https://fonts.google.com/)<br/>
+☘️ Menu displyed for tablets/mobile and open throgth the ≡ called hamburger menu (the name helps you to find its implementations)<br/>
+☘️ Use [Font Awesome](https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free) free icons<br/>
+☘️ Use [Lorem Ipsum](https://www.lipsum.com/) to mock text<br/>
+
+Have a look what you should [do next](../README.md#progress). 👀

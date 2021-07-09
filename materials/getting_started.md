@@ -26,4 +26,4 @@ If you're not familiar with git workflow, PR/MR and other git stuff, have a look
 
 🍀 Good luck 🍀
 
-Have a look what you should [do next](../README.md#progress). 🔙
+Have a look what you should [do next](../README.md#progress). 👀

@@ -22,7 +22,7 @@ So, if you're ready to work hard, go to [Getting Started](./materials/getting_st
 - [x] [Info](#frontend-lab)
 - [ ] [Getting Started](./materials/getting_started.md)
 - [ ] [Landing Page](./materials/landing_page.md)
-- [ ] [Some task here]
+- [ ] [Landing Page - Working With Third-Party Services](./materials/landing_page_with_data.md)
 - [ ] [Some task here]
 - [ ] [React project](./materials/react_project.md)
 
