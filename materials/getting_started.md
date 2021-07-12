@@ -2,6 +2,10 @@
 
 Here will be description how to work with this repo.
 
+<div align="center">
+  <img align="" src="../assets/readme-image.png" width="400" />
+</div>
+
 ## Take It
 
 So, to work with this repo you need to fork it to your github/gitlab and then clone to locale mashine.
@@ -9,7 +13,7 @@ If you don't now what means to fork a repo, you'll find an answer here [Fork a r
 
 ## Track Progress
 
-Every item in the [Progress](../README.md#progress) is a task. When you finish working on it and mark the task as checked, to do it you just need to open README.md file and using Markdown syntax change `- [ ]` to `- [x]`. Add this change as separate commit with message `check task`.
+Every item in the [Progress](../README.md#progress) is a task. When you finish working on it and mark the task as checked, to do it you just need to open <b>README</b> file and using Markdown syntax change `- [ ]` to `- [x]`. Add this change as separate commit with message `check task`.
 
 ## Work Flow
 
