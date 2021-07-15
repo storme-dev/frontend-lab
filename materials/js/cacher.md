@@ -13,5 +13,5 @@ const b = factorial(someBigNumber); // => the result is returned from the cache 
  * Ability to create multiple cache instances using ```new Cacher()```  
  * For the demo - create a html page with the input and the "Calc" button which runs calculations. The result of the function call should appear on the page after the button click.
 
-Use the [math.js](https://github.com/josdejong/mathjs) lib to work with the large numbers. Also, you can use Facetorial function from this lib
+Use the [math.js](https://github.com/josdejong/mathjs) lib to work with the large numbers. Also, you can use Factorial function from this lib
 
