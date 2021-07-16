@@ -7,7 +7,7 @@ Hi there, we're glad to congratulate you 🎉 on passing interview and becoming 
 
 ### What is the place?
 
-It's the repository on which you will find the bunch of tasks on HTML, CSS, JS and React. It should helps you to dive into the frontend dev world and become more familiar with it. The workflow (tasks which have to be made / can be skipped) will be defined by your mentor.
+It's the repository on which you will find the bunch of tasks on HTML, CSS, JS and React. It should help you to dive into the frontend dev world and become more familiar with it. The workflow (tasks which have to be made / can be skipped) will be defined by your mentor.
 
 ### What will you face with?
 
