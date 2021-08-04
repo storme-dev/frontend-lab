@@ -15,7 +15,7 @@ In the landing page from the [privious task](./landing_page.md) we have section 
   <img src="../assets/hovered-card.png" width="200">
 </div>
 
-- At the bottom of cards section you have to implement pagination (the QIPHY support it). User should see N cards (for ex: 10 first cards), to see next 10 - click to ➡️ button, previous ⬅️ 10 cards.
+- At the bottom of cards section you have to implement pagination (the GIPHY support it). User should see N cards (for ex: 10 first cards), to see next 10 - click to ➡️ button, previous ⬅️ 10 cards.
 - For AJAX-requsts use [fetch method](https://learn.javascript.ru/fetch)
 
 ### 👇 Maybe it'll help you 👇:
