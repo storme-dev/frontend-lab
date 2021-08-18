@@ -11,7 +11,7 @@ In this part of the lab, you will develop a project using React.js. <br/>
 ## Progress
 
 - [x] [Info](#frontend-lab)
-- [ ] Read [Official Getting Started](https://ru.reactjs.org/docs/getting-started.html) and try it out
+- [ ] Read the [Official Tutorial](https://ru.reactjs.org/docs/getting-started.html) and try it out
 - [ ] [Init Project](./init.md)
 
 🔮 PS: following [this link](./materials/useful-links.md) you can find a bunch of useful links
