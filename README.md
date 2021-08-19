@@ -29,4 +29,4 @@ So, if you're ready to work hard, go to [Getting Started](./materials/getting_st
 - [ ] [Javascript - JSON Visualizer](./materials/js/json_visualizer.md)
 - [ ] [React Project](./materials/react)
 
-🔮 PS: following [this link](./materials/useful-links.md) you can find a bunch of useful links
+🔮 PS: following [this link](./materials/useful_links.md) you can find a bunch of useful links
