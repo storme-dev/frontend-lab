@@ -11,5 +11,9 @@ In this part of the lab, you will develop a project using React.js. <br/>
 ## Progress
 - [ ] Read the [Official Tutorial](https://ru.reactjs.org/docs/getting-started.html) and try it out
 - [ ] [Init Project](./init.md)
+- [ ] [First steps](./first_steps.md)
 
-🔮 PS: following [this link](../useful_links.md) you can find a bunch of useful links
+## Docs
+- [Figma Design](https://www.figma.com/file/4fBQwJEhbdymhAiRfmOp7m/Untitled?node-id=0%3A1)
+- [API docs](./api_docs.md)
+- [Useful Links](../useful_links.md) (please look at them at least once)
