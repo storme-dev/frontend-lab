@@ -21,6 +21,7 @@
   - [Flux and Redux. Introducing Flux](https://metanit.com/web/react/5.1.php)
   - Redux in russian https://github.com/rajdee/redux-in-russian
   - Redux Thunk - [Why do we need this](https://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559) and [official docs](https://github.com/reduxjs/redux-thunk)
+  - Redux Saga - [Introdaction to Saga](https://redux-saga.js.org/docs/introduction/GettingStarted)
 
 ## Websites with Articles 📰💥
 
