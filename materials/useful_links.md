@@ -1,16 +1,20 @@
 # Something Useful For You
 
 ## Docs 📒
-  ### JS
+
+### JS
+
 - [Learn JavaScript](https://learn.javascript.ru/)
 - [ES6 Features](http://es6-features.org)
 - [ES6 modules](https://learn.javascript.ru/modules)
 - [MDN](https://developer.mozilla.org/ru/docs/Web)
-### React⚛️
+
+### React ⚛️
+
 - [React – A JavaScript library for building user interfaces](https://reactjs.org/)
   - [React For Beginners](https://blog.andrewray.me/reactjs-for-stupid-people/)
   - [Russian translation](https://ru.reactjs.org/)
-  - [Official Tutorial]( https://reactjs.org/tutorial/tutorial.html)
+  - [Official Tutorial](https://reactjs.org/tutorial/tutorial.html)
   - Popular react boilerplate - [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
   - React Router - [Tutorial](https://blog.pshrmn.com/entry/simple-react-router-v4-tutorial/) and [Philosophy](https://reacttraining.com/react-router/core/guides/philosophy)
 - [Redux Tutorial](https://redux.js.org/introduction/getting-started)
@@ -22,6 +26,7 @@
 
 - [CSS-Tricks](https://css-tricks.com/)
 - [CSS Animation Rocks](https://cssanimation.rocks/)
+- [Code Style Article](https://learn.javascript.ru/coding-style) - read it if you write code without empty strings and indents and spacing
 
 ## Tools 🛠
 
