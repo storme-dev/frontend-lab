@@ -8,5 +8,7 @@ First step is to set up your environment
 - Launch it to be sure it works
 - Enjoy yourself a little bit 💪
 - Add your first component called _CurrentTime_, which displays the current time(HH:MM:SS format), time should be updated every second
-- Place _\<CurrentTime\/\>_ somewhere inside of default _\<App\/\>_ component (ensure it is visible)
+- Place _\<CurrentTime \/\>_ somewhere inside of default _\<App \/\>_ component (ensure it is visible)
 - Great job! 🎉🎊 You have your own React project running! See [the next task](./first_steps.md)
+
+💡 Tip: read articles about organizing directory structure of React projects and decide how it will looks.
