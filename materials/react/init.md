@@ -14,3 +14,5 @@ First step is to set up your environment
 Here there's a presentation about [SPA, basic React things](https://drive.google.com/file/d/1UaNvPMyGPhCgi4rB8ht7jzzlkatqV73p/view) Read It!
 
 💡 Tip: read articles about organizing directory structure of React projects and decide how it will looks.
+
+P.S. Use this project for all the next tasks.
