@@ -6,12 +6,18 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background: #efefef;
 }
 
 * {
     outline: none;
     border: 0;
     color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* Icon button */
@@ -35,6 +41,15 @@ body {
     transition: 0.4s;
 }
 
+.icon-btn-group {
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn-group > .icon-btn:not(:last-child) {
+    margin-right: 4px;
+}
+
 /* Header */
 .header {
     padding: 40px 60px;
@@ -42,6 +57,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background: #fff;
+    box-sizing: border-box;
+
+    height: 15vh;
 }
 
 .logo__title {
@@ -52,16 +72,51 @@ body {
     color: var(--primary-color);
 }
 
-.social-links {
+.icon-btn-group_social {
+    font-size: 0.75em;
+}
+
+/* Navigation */
+.navigation {
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-btn-group_navigation {
+    font-size: 0.75em;
+}
+
+.breadcrumb {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.breadcrumb__item > a {
+    transition: 0.2s;
+}
+
+.breadcrumb__item > a:hover {
+    color: var(--primary-color);
+    transition: 0.2s;
+}
+
+.breadcrumb__item_active > a {
+    color: var(--primary-color);
+}
+
+.breadcrumb > ul {
     display: flex;
     align-items: center;
 }
 
-.social-links > .icon-btn {
-    margin-right: 4px;
-    font-size: 0.75em;
+.breadcrumb > ul > li:not(:last-child) {
+    margin-right: 30px;
 }
 
-.social-links > .icon-btn:last-child {
-    margin-right: 0;
+.breadcrumb li:not(:first-child)::before {
+    content: "/";
+    color: #afafaf;
+    margin-right: 30px;
 }
