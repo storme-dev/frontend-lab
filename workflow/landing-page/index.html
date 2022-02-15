@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/24bd1027be.js" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./utils/dropdown-menu/dropdown-menu.css">
 </head>
 <body>
     <header class="header">
@@ -38,12 +39,44 @@
             <ul>
                 <li class="breadcrumb__item breadcrumb__item_active"><a href="#">home</a></li>
                 <li class="breadcrumb__item"><a href="#">services</a></li>
-                <li class="breadcrumb__item"><a href="#">projects</a></li>
-                <li class="breadcrumb__item"><a href="#">blog</a></li>
-                <li class="breadcrumb__item"><a href="#">pages</a></li>
+                <li class="breadcrumb__item"><a href="#" id="dropdown-projects">projects</a></li>
+                <li class="breadcrumb__item"><a href="#" id="dropdown-blog">blog</a></li>
+                <li class="breadcrumb__item"><a href="#" id="dropdown-pages">pages</a></li>
                 <li class="breadcrumb__item"><a href="#">contact</a></li>
             </ul>
         </nav>
     </div>
 </body>
+<script src="utils/dropdown-menu/dropdown-menu.js"></script>
+<script>
+
+    const projectsDropdown = new DropdownMenu(['Project 1', 'Project 2', 'Project 3']);
+    const blogDropdown = new DropdownMenu(['Article 1', 'Article 2', 'Article 3']);
+    const pagesDropdown = new DropdownMenu(['Page 1', 'Page 2', 'Page 3']);
+
+    const projectsLink = document.getElementById('dropdown-projects');
+    const blogLink = document.getElementById('dropdown-blog');
+    const pagesLink = document.getElementById('dropdown-pages');
+
+    const dropDowns = [projectsDropdown, blogDropdown, pagesDropdown];
+    const links = [projectsLink, blogLink, pagesLink];
+
+    for(let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const dropDown = dropDowns[i];
+
+        link.onmouseenter = () => {
+            dropDown.attachToElement(link);
+            for(let drop of dropDowns) {
+                if(drop !== dropDown) {
+                    drop.hide();
+                }
+            }
+        }
+    }
+
+    /*
+    const drop = new DropdownMenu(['Item 1', 'Item 2', 'Item 3']);
+    drop.attachToElement(document.getElementById('attach'));*/
+</script>
 </html>
