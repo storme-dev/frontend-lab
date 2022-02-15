@@ -1,0 +1,67 @@
+html {
+    --primary-color: orange;
+    --secondary-color: #778899;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    outline: none;
+    border: 0;
+    color: black;
+}
+
+/* Icon button */
+.icon-btn {
+    border: 1px solid #d0d0d0;
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: 0.2s;
+
+    box-sizing: border-box;
+}
+
+.icon-btn:hover {
+    border: 1px solid black;
+    transition: 0.4s;
+}
+
+/* Header */
+.header {
+    padding: 40px 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo__title {
+    font-size: 1.75em;
+}
+
+.logo__title > span {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.social-links > .icon-btn {
+    margin-right: 4px;
+    font-size: 0.75em;
+}
+
+.social-links > .icon-btn:last-child {
+    margin-right: 0;
+}
