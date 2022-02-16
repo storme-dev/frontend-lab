@@ -10,7 +10,6 @@ body {
 * {
     outline: none;
     border: 0;
-    color: black;
     text-decoration: none;
     margin: 0;
     padding: 0;
@@ -78,7 +77,7 @@ ul {
 
 /* Navigation */
 .navigation {
-    padding: 30px 60px;
+    padding: 35px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,6 +94,7 @@ ul {
 
 .breadcrumb__item > a {
     transition: 0.2s;
+    color: #000;
 }
 
 .breadcrumb__item > a:hover {
@@ -119,4 +119,46 @@ ul {
     content: "/";
     color: #afafaf;
     margin-right: 30px;
+}
+
+/* Promo */
+.promo {
+    width: 100vw;
+    height: 500px;
+    box-sizing: border-box;
+    background: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 80%;
+
+    font-size: 1.2em;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding-left: 13vw;
+}
+
+.promo__title > i {
+    color: #fff;
+}
+
+.promo__subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.15em;
+    margin-top: 35px;
+}
+
+.promo__credits {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.15em;
+    margin-top: 35px;
+}
+
+.promo__credits > a {
+    color: #fff;
+    font-size: 1.2em;
 }
