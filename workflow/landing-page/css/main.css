@@ -19,6 +19,14 @@ ul {
     list-style-type: none;
 }
 
+.section-title {
+    font-size: 1.5em;
+    font-weight: 400;
+    font-family: 'Times New Roman', sans-serif;
+
+    text-transform: uppercase;
+}
+
 /* Icon button */
 .icon-btn {
     border: 1px solid #d0d0d0;
@@ -123,11 +131,10 @@ ul {
 
 /* Promo */
 .promo {
-    width: 100vw;
     height: 500px;
     box-sizing: border-box;
     background: url(../img/bg.jpg);
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: 80%;
@@ -161,4 +168,78 @@ ul {
 .promo__credits > a {
     color: #fff;
     font-size: 1.2em;
+}
+
+/* Services */
+.services {
+    padding: 10vh 12vw;
+    box-sizing: border-box;
+}
+
+.section-title_services {
+    margin-bottom: 70px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-card {
+    background: #fff;
+    padding: 25px;
+    box-sizing: border-box;
+    width: 555px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.service-card__content {
+    width: 80%;
+    text-align: right;
+}
+
+.service-card__title {
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.service-card__meta {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+
+.service-card__icon {
+    border: 2px solid #e4e4e4;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.8em;
+    transition: 0.3s;
+}
+
+.service-card__icon:hover {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    transform: rotate(360deg);
+    transition: 0.3s;
+}
+
+/* Blog */
+.blog {
+    padding: 10vh 12vw;
 }
