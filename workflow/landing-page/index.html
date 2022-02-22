@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Roboto Slab -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,13 +46,26 @@
                 <li class="breadcrumb__item"><a href="#">contact</a></li>
             </ul>
         </nav>
-        <div class="burger-button">
+        <div class="burger-button" id="burger-button">
             <i class="fa fa-bars"></i>
         </div>
     </div>
-    <div class="mobile-navigation">
-
-    </div>
+    <nav class="mobile-navigation" style="display: none" id="mobile-navigation">
+        <ul>
+<!--            <li class="mobile-navigation__item"><a href="#">Home</a></li>-->
+            <li class="mobile-navigation__item">
+                <a href="#">Home</a>
+                <ul class="mobile-navigation__submenu">
+                    <li class="mobile-navigation__subitem">
+                        <a href="#">Sub Home</a>
+                    </li>
+                    <li class="mobile-navigation__subitem">
+                        <a href="#">Sub Home 2</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
     <div class="promo">
         <h2 class="promo__title">I <i class="fas fa-heart"></i> FRONTEND</h2>
         <p class="promo__subtitle">Some lorem ipsum text</p>
@@ -259,7 +273,7 @@
                 </div>
                 <div class="contact-form__field">
                     <label for="message">Your Message:</label>
-                    <textarea name="message" id="message" cols="30" rows="8"></textarea>
+                    <textarea name="message" id="message"></textarea>
                 </div>
                 <div class="contact-form__field">
                     <label></label>
@@ -296,6 +310,11 @@
             }
         }
     }
+
+    document.getElementById('burger-button').addEventListener('click', e => {
+        const mobileNavigation = document.getElementById('mobile-navigation');
+        mobileNavigation.style.display = mobileNavigation.style.display === 'none' ? 'block' : 'none';
+    })
 
     /*
     const drop = new DropdownMenu(['Item 1', 'Item 2', 'Item 3']);
