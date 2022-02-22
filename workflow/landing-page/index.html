@@ -133,7 +133,7 @@
     </section>
     <section class="blog">
         <h3 class="section-title">and here some images for you...</h3>
-        <div class="blog-cards">
+        <div class="blog-cards" id="blog-cards">
             <div class="blog-card">
                 <div class="blog-card__image">
                     <img src="./img/blog1.png" alt="">
@@ -252,6 +252,11 @@
                 </div>
             </div>
         </div>
+        <div class="blog-pagination">
+            <div class="icon-btn" id="prevPage"><i class="fas fa-chevron-left"></i></div>
+            <div class="blog-pagination__text" id="pageText">Page 1</div>
+            <div class="icon-btn" id="nextPage"><i class="fas fa-chevron-right"></i></div>
+        </div>
     </section>
     <section class="contact-us">
         <h3 class="section-title">contact us</h3>
@@ -284,40 +289,5 @@
     </section>
 </body>
 <script src="utils/dropdown-menu/dropdown-menu.js"></script>
-<script>
-
-    const projectsDropdown = new DropdownMenu(['Project 1', 'Project 2', 'Project 3']);
-    const blogDropdown = new DropdownMenu(['Article 1', 'Article 2', 'Article 3']);
-    const pagesDropdown = new DropdownMenu(['Page 1', 'Page 2', 'Page 3']);
-
-    const projectsLink = document.getElementById('dropdown-projects');
-    const blogLink = document.getElementById('dropdown-blog');
-    const pagesLink = document.getElementById('dropdown-pages');
-
-    const dropDowns = [projectsDropdown, blogDropdown, pagesDropdown];
-    const links = [projectsLink, blogLink, pagesLink];
-
-    for(let i = 0; i < links.length; i++) {
-        const link = links[i];
-        const dropDown = dropDowns[i];
-
-        link.onmouseenter = () => {
-            dropDown.attachToElement(link);
-            for(let drop of dropDowns) {
-                if(drop !== dropDown) {
-                    drop.hide();
-                }
-            }
-        }
-    }
-
-    document.getElementById('burger-button').addEventListener('click', e => {
-        const mobileNavigation = document.getElementById('mobile-navigation');
-        mobileNavigation.style.display = mobileNavigation.style.display === 'none' ? 'block' : 'none';
-    })
-
-    /*
-    const drop = new DropdownMenu(['Item 1', 'Item 2', 'Item 3']);
-    drop.attachToElement(document.getElementById('attach'));*/
-</script>
+<script src="js/index.js"></script>
 </html>
