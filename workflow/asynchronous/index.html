@@ -3,13 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-
+    <div id="images">
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+    </div>
 </body>
-<script>
+<script defer>
+
+    async function timeout(ms) {
+        return new Promise(resolve => {
+            setTimeout(resolve, ms);
+        })
+    }
+
+    function fetchCallback(url, cb) {
+        (async function () {
+            const res = await fetch(url);
+            const data = await res.json();
+            cb(data);
+        })();
+    }
+
+    function loadOneByOneCB() {
+
+        let count = 0;
+
+        function loadImage() {
+            if(count >= 5) return;
+            const imageBlock = document.querySelector(`#images > div:nth-child(${count+1})`);
+
+            imageBlock.innerHTML = `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+            fetchCallback('https://api.thecatapi.com/v1/images/search', data => {
+                let img = new Image();
+                img.style.width = '300px';
+                img.onload = function () {
+                    imageBlock.innerHTML = '';
+                    imageBlock.appendChild(img);
+                    count ++;
+                    loadImage();
+                }
+                img.src = data[0].url;
+            });
+        }
+
+        loadImage();
+    }
+
+    function loadOneByOnePromises() {
+        let count = 0;
+
+        function loadImage() {
+            if(count >= 5) return;
+            const imageBlock = document.querySelector(`#images > div:nth-child(${count+1})`);
+
+            imageBlock.innerHTML = `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+            fetch('https://api.thecatapi.com/v1/images/search')
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    let img = new Image();
+                    img.style.width = '300px';
+                    img.onload = function () {
+                        imageBlock.innerHTML = '';
+                        imageBlock.appendChild(img);
+                        count ++;
+                        loadImage();
+                    }
+                    img.src = data[0].url;
+                });
+        }
+
+        loadImage();
+    }
+
+    async function loadOneByOneAsyncAwait() {
+
+        Image.prototype.waitForLoad = function () {
+            return new Promise(resolve => {
+                this.onload = resolve;
+            })
+        }
+
+        for(let i = 0; i < 5; i++) {
+            const imageBlock = document.querySelector(`#images > div:nth-child(${i+1})`);
+
+            imageBlock.innerHTML = `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+            const response = await fetch('https://api.thecatapi.com/v1/images/search');
+            const data = await response.json();
+
+            let img = new Image();
+            img.style.width = '300px';
+            img.src = data[0].url;
+            await img.waitForLoad();
+            imageBlock.innerHTML = '';
+            imageBlock.appendChild(img);
+        }
+    }
+
+    function* loadOneByOneGenerator() {
+        Image.prototype.waitForLoad = function () {
+            return new Promise(resolve => {
+                this.onload = resolve;
+            })
+        }
+
+        for(let i = 0; i < 5; i++) {
+            const imageBlock = document.querySelector(`#images > div:nth-child(${i+1})`);
+
+            imageBlock.innerHTML = `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+            yield fetch('https://api.thecatapi.com/v1/images/search').then(response => response.json())
+        }
+    }
+
+    //console.log(loadOneByOneGenerator())
+
+    // One by one with generator
+    /*
+    (async function () {
+        let index = -1;
+        for (let response of loadOneByOneGenerator()) {
+            index ++;
+            const data = await response;
+            const imageBlock = document.querySelector(`#images > div:nth-child(${index+1})`);
+            let img = new Image();
+            img.style.width = '300px';
+            img.src = data[0].url;
+            await img.waitForLoad();
+            imageBlock.innerHTML = '';
+            imageBlock.appendChild(img);
+        }
+    })();*/
 
 
+    // loadOneByOneCB();
+    // loadOneByOnePromises();
+    // loadOneByOneAsyncAwait();
 
+    function loadAllCB() {
+
+        let loaded = 0;
+        let images = [];
+        let imageBlocks = [];
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            const imageBlock = document.querySelector(`#images > div:nth-child(${i+1})`);
+
+            imageBlocks.push(imageBlock);
+
+            fetchCallback('https://api.thecatapi.com/v1/images/search', data => {
+                let img = new Image();
+                img.style.width = '300px';
+                images.push(img);
+                img.onload = function () {
+                    imageBlock.innerHTML = '';
+                    loaded ++;
+                    if(loaded === 5) {
+                        const imagesBlock = document.getElementById('images');
+                        imagesBlock.removeChild(imagesBlock.lastElementChild);
+                        for(let j = 0; j < 5; j++) {
+                            imageBlocks[j].appendChild(images[j]);
+                        }
+                    }
+                }
+                img.src = data[0].url;
+            });
+        }
+    }
+
+    function loadAllPromises() {
+        const promises = [];
+        let loaded = 0;
+        let images = [];
+        let imageBlocks = [];
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            const imageBlock = document.querySelector(`#images > div:nth-child(${i+1})`);
+
+            imageBlocks.push(imageBlock);
+
+            promises.push(fetch('https://api.thecatapi.com/v1/images/search').then(response => response.json()));
+        }
+
+        Promise.all(promises).then(results => {
+            let i = -1;
+            for(let data of results) {
+                i ++;
+                let img = new Image();
+                img.style.width = '300px';
+                images.push(img);
+                img.onload = function () {
+                    imageBlocks[i].innerHTML = '';
+                    loaded ++;
+                    if(loaded === 5) {
+                        const imagesBlock = document.getElementById('images');
+                        imagesBlock.removeChild(imagesBlock.lastElementChild);
+                        for(let j = 0; j < 5; j++) {
+                            imageBlocks[j].appendChild(images[j]);
+                        }
+                    }
+                }
+                img.src = data[0].url;
+            }
+        });
+    }
+
+    async function loadAllAsyncAwait() {
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        Image.prototype.waitForLoad = function () {
+            return new Promise(resolve => {
+                this.onload = resolve;
+            })
+        }
+
+        let promises = [];
+        let images = [];
+        let imageBlocks = [];
+
+        for(let i = 0; i < 5; i++) {
+            const imageBlock = document.querySelector(`#images > div:nth-child(${i+1})`);
+            imageBlocks.push(imageBlock);
+
+            promises.push(fetch('https://api.thecatapi.com/v1/images/search'))
+        }
+
+        const results = await Promise.all(promises);
+        for(let result of results) {
+            const data = await (await result).json();
+
+            let img = new Image();
+            images.push(img);
+            img.style.width = '300px';
+            img.src = data[0].url;
+            await img.waitForLoad();
+        }
+
+        for(let i = 0; i < 5; i++) {
+            imageBlocks[i].innerHTML = '';
+            imageBlocks[i].appendChild(images[i]);
+        }
+
+        const imagesBlock = document.getElementById('images');
+        imagesBlock.removeChild(imagesBlock.lastElementChild);
+    }
+
+    function* loadAllGenerator() {
+
+        Image.prototype.waitForLoad = function () {
+            return new Promise(resolve => {
+                this.onload = resolve;
+            })
+        }
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            yield fetch('https://api.thecatapi.com/v1/images/search');
+        }
+    }
+
+    //loadAllCB();
+    //loadAllPromises();
+    //loadAllAsyncAwait();
+
+    // Load all with function-generator
+    /*
+    (async function () {
+        let promises = [];
+        let images = [];
+        let imageBlocks = [];
+
+        for (let response of loadAllGenerator()) {
+            promises.push(response);
+        }
+
+        const results = await Promise.all(promises);
+        let index = -1;
+        for(let result of results) {
+            index ++;
+            const data = await (await result).json();
+            const imageBlock = document.querySelector(`#images > div:nth-child(${index+1})`);
+            imageBlocks.push(imageBlock);
+            let img = new Image();
+            images.push(img);
+            img.style.width = '300px';
+            img.src = data[0].url;
+            await img.waitForLoad();
+        }
+
+        for(let i = 0; i < 5; i++) {
+            imageBlocks[i].innerHTML = '';
+            imageBlocks[i].appendChild(images[i]);
+        }
+
+        const imagesBlock = document.getElementById('images');
+        imagesBlock.removeChild(imagesBlock.lastElementChild);
+    })();*/
+
+    function loadAllCBCancel() {
+
+        let firstImage = null;
+        let firstImageBlock = null;
+        let firstImageRendered = false;
+        let xhrs = [];
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            const imageBlock = document.querySelector(`#images > div:nth-child(${i+1})`);
+
+            if(!firstImageBlock) firstImageBlock = imageBlock;
+
+            let xhr = new XMLHttpRequest();
+            xhrs.push(xhr);
+
+            xhr.open('GET', 'https://api.thecatapi.com/v1/images/search', true);
+
+            xhr.send();
+
+            xhr.onload = function() {
+                if(xhr.responseText.length <= 0) return;
+                const data = JSON.parse(xhr.responseText);
+
+                let img = new Image();
+                img.style.width = '300px';
+                if(!firstImage) firstImage = img;
+                img.onload = function () {
+                    if(firstImageRendered) return;
+                    imageBlock.innerHTML = '';
+                    for(let x of xhrs) {
+                        x.abort();
+                    }
+                    const imagesBlock = document.getElementById('images');
+                    imagesBlock.removeChild(imagesBlock.lastElementChild);
+                    firstImageBlock.appendChild(firstImage);
+                    firstImageRendered = true;
+                }
+                img.src = data[0].url;
+            }
+        }
+    }
+
+    function* loadAllGeneratorCancel() {
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.thecatapi.com/v1/images/search', true);
+            yield xhr;
+        }
+    }
+
+    // Load all with function-generator & cancel
+    /*
+    const generator = loadAllGeneratorCancel();
+    const xhr = generator.next().value;
+    xhr.send();
+    xhr.onload = function() {
+        if (xhr.responseText.length <= 0) return;
+        const data = JSON.parse(xhr.responseText);
+
+        const imageBlock = document.querySelector(`#images > div:nth-child(1)`);
+
+        let img = new Image();
+        img.style.width = '300px';
+        img.onload = function () {
+            imageBlock.innerHTML = '';
+            const imagesBlock = document.getElementById('images');
+            imagesBlock.removeChild(imagesBlock.lastElementChild);
+            imageBlock.appendChild(img);
+        }
+        img.src = data[0].url;
+    }*/
+
+    //loadAllCBCancel();
+
+    function loadAllPromisesCancel() {
+        const promises = [];
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.thecatapi.com/v1/images/search', true);
+            xhr.send();
+
+            promises.push(new Promise(resolve => {
+                xhr.onload = function () {
+                    if(xhr.responseText.length > 0) resolve(xhr.responseText);
+                }
+            }));
+        }
+
+        Promise.race(promises).then(data => {
+            const imageBlock = document.querySelector(`#images > div:nth-child(1)`);
+            data = JSON.parse(data);
+            let img = new Image();
+            img.style.width = '300px';
+            img.onload = function () {
+                imageBlock.innerHTML = '';
+                const imagesBlock = document.getElementById('images');
+                imagesBlock.removeChild(imagesBlock.lastElementChild);
+                imageBlock.appendChild(img);
+            }
+            img.src = data[0].url;
+        });
+    }
+
+    //loadAllPromisesCancel();
+
+    async function loadAllAsyncAwaitCancel() {
+        const promises = [];
+
+        Image.prototype.waitForLoad = function () {
+            return new Promise(resolve => {
+                this.onload = resolve;
+            })
+        }
+
+        document.getElementById('images').innerHTML += `
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>`;
+
+        for(let i = 0; i < 5; i++) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.thecatapi.com/v1/images/search', true);
+            xhr.send();
+
+            promises.push(new Promise(resolve => {
+                xhr.onload = function () {
+                    if(xhr.responseText.length > 0) resolve(xhr.responseText);
+                }
+            }));
+        }
+
+        const data = JSON.parse(await Promise.race(promises));
+
+        const imageBlock = document.querySelector(`#images > div:nth-child(1)`);
+        let img = new Image();
+        img.style.width = '300px';
+        img.src = data[0].url;
+        await img.waitForLoad();
+        imageBlock.innerHTML = '';
+        const imagesBlock = document.getElementById('images');
+        imagesBlock.removeChild(imagesBlock.lastElementChild);
+        imageBlock.appendChild(img);
+    }
+
+    loadAllAsyncAwaitCancel();
 </script>
 </html>
