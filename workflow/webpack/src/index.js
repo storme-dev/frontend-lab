@@ -1,5 +1,6 @@
 import Visualizer from './visualizer';
 import Editor from './editor';
+import _ from 'lodash';
 
 window.onload = () => {
     Editor.load(document.getElementById('json-editor'));
