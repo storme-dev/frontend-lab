@@ -1,2 +1,3 @@
 .idea
+workflow/webpack/dist
 workflow/webpack/node_modules
